@@ -3,7 +3,7 @@
 *
 * User Feedback extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2016 Riccardo Bianconi <http://www.riccardobianconi.it>
+* @copyright (c) 2018 Ger Bruinsma
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
