@@ -1,0 +1,5 @@
+riccardobianconi_userfeedback_controller:
+    path: /userfeedback/{mode}
+    defaults: { _controller: riccardobianconi.userfeedback.controller:display }
+    requirements:
+        mode: (\w+)?

@@ -1,0 +1,55 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+    riccardobianconi.userfeedback.controller:
+        class: riccardobianconi\userfeedback\controller\main_controller
+        arguments:
+            - @auth
+            - @dbal.conn
+            - @config
+            - @ext.manager
+            - @controller.helper
+            - @pagination
+            - @request
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+            - %riccardobianconi.userfeedback.tables.feedback%
+            - %riccardobianconi.userfeedback.tables.feedback_tot%
+
+    riccardobianconi.userfeedback.admin_controller:
+        class: riccardobianconi\userfeedback\controller\admin_controller
+        arguments:
+            - @dbal.conn
+            - @config
+            - @ext.manager
+            - @pagination
+            - @request
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
+            - %riccardobianconi.userfeedback.tables.feedback%
+            - %riccardobianconi.userfeedback.tables.feedback_tot%
+
+    riccardobianconi.userfeedback.listener:
+        class: riccardobianconi\userfeedback\event\main_listener
+        arguments:
+            - @auth
+            - @controller.helper
+            - @template
+            - @riccardobianconi.userfeedback.functions
+        tags:
+            - { name: event.listener }
+
+    riccardobianconi.userfeedback.constants:
+        class: riccardobianconi\userfeedback\common\common_constants
+
+    riccardobianconi.userfeedback.functions:
+        class: riccardobianconi\userfeedback\common\common_functions
+        arguments:
+            - @dbal.conn
+            - @config
+            - %riccardobianconi.userfeedback.tables.feedback_tot%

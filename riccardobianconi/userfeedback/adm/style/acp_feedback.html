@@ -1,0 +1,544 @@
+<!-- INCLUDE overall_header.html -->
+				
+<a name="maincontent"></a>
+
+<!-- IF ACP_USERFEEDBACK_PAGE == 'settings' -->
+<h1>{L_ACP_USERFEEDBACK_PREFS}</h1>
+{L_ACP_USERFEEDBACK_PERM_EXPLAIN}
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_ROLE_SET}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_ROLE_ENABLE}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="role_enable" value="1"<!-- IF USERFEEDBACK_ROLE_ENABLE --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="role_enable" value="0"<!-- IF not USERFEEDBACK_ROLE_ENABLE --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_SCORE}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_SCORE_ENABLE}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="score" value="1"<!-- IF USERFEEDBACK_SCORE --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="score" value="0"<!-- IF not USERFEEDBACK_SCORE --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_SCORE_POS}:</label>
+			</dt>
+			<dd>
+				<input name="score_pos" type="text" size="5" maxlength="5" value="{USERFEEDBACK_SCORE_POS}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_SCORE_NEU}:</label>
+			</dt>
+			<dd>
+				<input name="score_neu" type="text" size="5" maxlength="5" value="{USERFEEDBACK_SCORE_NEU}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_SCORE_NEG}:</label>
+			</dt>
+			<dd>
+				<input name="score_neg" type="text" size="5" maxlength="5" value="{USERFEEDBACK_SCORE_NEG}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_LINK_SET}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_LINK_ENABLE}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="link_enable" value="1"<!-- IF USERFEEDBACK_LINK_ENABLE --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="link_enable" value="0"<!-- IF not USERFEEDBACK_LINK_ENABLE --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_LINK_FORCE}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="link_force" value="1"<!-- IF USERFEEDBACK_LINK_FORCE --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="link_force" value="0"<!-- IF not USERFEEDBACK_LINK_FORCE --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+				{L_ACP_USERFEEDBACK_IGNOREDACP}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_LINK_FORCE_IN}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="link_force_in" value="1"<!-- IF USERFEEDBACK_LINK_FORCE_IN --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="link_force_in" value="0"<!-- IF not USERFEEDBACK_LINK_FORCE_IN --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+				{L_ACP_USERFEEDBACK_IGNOREDACP}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_LINK_FORUM}:</label>
+			</dt>
+			<dd>
+				<input name="link_forum" type="text" size="20" maxlength="255" value="{USERFEEDBACK_LINK_FORUM}" />&nbsp;&nbsp;{L_ACP_USERFEEDBACK_IGNOREDACP}
+			</dd>
+			<dd>
+				{L_ACP_USERFEEDBACK_LINK_FORUM_D}
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_COMM_SET}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_COMM_MINCHARS}:</label>
+			</dt>
+			<dd>
+				<input name="comm_minchars" type="text" size="5" maxlength="5" value="{USERFEEDBACK_COMM_MINCHARS}" />&nbsp;&nbsp;{L_ACP_USERFEEDBACK_IGNOREDACP}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_COMM_MAXCHARS}:</label>
+			</dt>
+			<dd>
+				<input name="comm_maxchars" type="text" size="5" maxlength="5" value="{USERFEEDBACK_COMM_MAXCHARS}" />&nbsp;&nbsp;{L_ACP_USERFEEDBACK_IGNOREDACP}
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_COMM_URL}:</label>
+			</dt>
+			<dd>
+				<input type="radio" class="radio" name="comm_url" value="1"<!-- IF USERFEEDBACK_COMM_URL --> checked="checked"<!-- ENDIF --> /><label>{L_YES}</label>
+				<input type="radio" class="radio" name="comm_url" value="0"<!-- IF not USERFEEDBACK_COMM_URL --> checked="checked"<!-- ENDIF --> /><label>{L_NO}</label>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_ANTIFLOOD}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_ANTIFLOOD_DESC}:</label>
+			</dt>
+			<dd>
+				<input name="antiflood" type="text" size="10" maxlength="10" value="{USERFEEDBACK_ANTIFLOOD}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_ANTIFLOOD_SAME}:</label>
+			</dt>
+			<dd>
+				<input name="antiflood_same" type="text" size="10" maxlength="10" value="{USERFEEDBACK_ANTIFLOOD_SAME}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_RANKINGS}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_TOP_MAIN}:</label>
+			</dt>
+			<dd>
+				<input name="top_main" type="text" size="5" maxlength="255" value="{USERFEEDBACK_TOP_MAIN}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_TOP_BEST}:</label>
+			</dt>
+			<dd>
+				<input name="top_best" type="text" size="5" maxlength="255" value="{USERFEEDBACK_TOP_BEST}" />
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_TOP_WORST}:</label>
+			</dt>
+			<dd>
+				<input name="top_worst" type="text" size="5" maxlength="255" value="{USERFEEDBACK_TOP_WORST}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_PAG_SET}</legend>
+		<dl>
+			<dt>
+				<label>{L_ACP_USERFEEDBACK_PAG_FEEDBACKS_PER_PAGE}:</label><br><span>{L_ACP_USERFEEDBACK_PAG_SET_D}</span>
+			</dt>
+			<dd>
+				<input name="pag_feedbacks_per_page" type="text" size="5" maxlength="255" value="{USERFEEDBACK_PAG_FEEDBACKS_PER_PAGE}" />
+			</dd>
+		</dl>
+	</fieldset>
+	<div>
+		{S_FORM_TOKEN}<input class="button1" name="submit" type="submit" value="{L_SUBMIT}" />
+	</div>
+</form>
+<!-- ENDIF -->
+
+<!-- IF ACP_USERFEEDBACK_PAGE == 'search' -->
+<h1>{L_ACP_USERFEEDBACK_MANAGE}</h1>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<fieldset>
+		<legend>{L_ACP_USERFEEDBACK_SEARCH}</legend>
+		<dl>
+			<dt>
+				<label>{L_USERNAME}:</label>
+			</dt>
+			<dd>
+				<input name="un" type="text" maxlength="255" />
+				<input class="button1" name="submit" type="submit" value="{L_SUBMIT}" />
+			</dd>
+		</dl>
+	</fieldset>
+</form>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'show' -->
+<h1>{L_ACP_USERFEEDBACK_FEEDBACKOF}&nbsp;{USERFEEDBACK_TOUSER}</h1>
+<!-- IF USERFEEDBACK_SCORE !== false -->
+	<table class="tablebg" cellspacing="1">
+		<tr>
+			<th>
+				{L_ACP_USERFEEDBACK_SCORE}
+			</th>
+			<th>
+				{L_ACP_USERFEEDBACK_PERCENTAGE}
+			</th>
+		</tr>
+		<tr class="row1" style="line-height: 20px; text-align: center;">
+			<td style="width: 50%;">
+				{USERFEEDBACK_SCORE}
+			</td>
+			<td style="width: 50%;">
+				{USERFEEDBACK_PERCENTAGE}%
+			</td>
+		</tr>
+	</table>
+<!-- ENDIF -->
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<table class="tablebg">
+		<tr>
+			<th>
+				{L_ACP_USERFEEDBACK_POS}
+			</th>
+			<th>
+				{L_ACP_USERFEEDBACK_NEU}
+			</th>
+			<th>
+				{L_ACP_USERFEEDBACK_NEG}
+			</th>
+		</tr>
+		<tr class="row1" style="text-align: center;">
+			<td style="width: 33%;">
+				{USERFEEDBACK_POS}
+			</td>
+			<td style="width: 34%;">
+				{USERFEEDBACK_NEU}
+			</td>
+			<td style="width: 33%;">
+				{USERFEEDBACK_NEG}
+			</td>
+		</tr>
+		<tr class="row2" style="text-align: center;">
+			<td colspan="3">
+				<input class="button2" type="submit" value="{L_ACP_USERFEEDBACK_ADD}" />
+			</td>
+		</tr>
+	</table>
+</form>
+<br />
+
+<div style="float: {S_CONTENT_FLOW_END}; line-height: 28px;">
+	{L_ACP_USERFEEDBACK_FILTER}:&nbsp;
+	<a href="{USERFEEDBACK_FILTER_ALL}#userfeedback_details">{L_ACP_USERFEEDBACK_FILTER_ALL}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_POS}#userfeedback_details">{L_ACP_USERFEEDBACK_FILTER_POS}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_NEU}#userfeedback_details">{L_ACP_USERFEEDBACK_FILTER_NEU}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_NEG}#userfeedback_details">{L_ACP_USERFEEDBACK_FILTER_NEG}</a>
+</div>
+<!-- IF USERFEEDBACK_S_ROLE -->
+	<div style="float: {S_CONTENT_FLOW_END}; line-height: 28px; margin-right: 20px;">
+		{L_ACP_USERFEEDBACK_ROLE}:&nbsp;
+		<a href="{USERFEEDBACK_ROLE_ALL}#userfeedback_details">{L_ACP_USERFEEDBACK_ROLE_ALL}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_BUYER}#userfeedback_details">{L_ACP_USERFEEDBACK_ROLE_BUYER}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_SELLER}#userfeedback_details">{L_ACP_USERFEEDBACK_ROLE_SELLER}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_TRADE}#userfeedback_details">{L_ACP_USERFEEDBACK_ROLE_TRADE}</a>
+	</div>
+<!-- ENDIF -->
+<a name="userfeedback_details"></a>
+<h1>{L_ACP_USERFEEDBACK_DETAILS}</h1>
+<div class="action-bar top">
+	<div class="pagination">
+		{USERFEEDBACK_TOT_FEEDBACKS}
+		<!-- IF USERFEEDBACK_S_PAGINATION -->
+			<!-- IF .pagination -->
+				&bull; <!-- INCLUDE pagination.html -->
+			<!-- ELSE -->
+				&bull; {PAGE_NUMBER}
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<table class="tablebg">
+	<tr>
+		<th>
+			{L_ACP_USERFEEDBACK_FROM} <a href="{USERFEEDBACK_ORDER_FROMA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_FROMD}">[&or;]</a>
+		</th>
+		<th>
+			{L_ACP_USERFEEDBACK_IP} <a href="{USERFEEDBACK_ORDER_IPA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_IPD}">[&or;]</a>
+		</th>
+		<th>
+			{L_ACP_USERFEEDBACK_ONDATE} <a href="{USERFEEDBACK_ORDER_DATEA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_DATED}">[&or;]</a>
+		</th>
+		<!-- IF USERFEEDBACK_S_ROLE -->
+			<th>
+				{L_ACP_USERFEEDBACK_ROLE}
+			</th>
+		<!-- ENDIF -->
+		<th>
+			{L_ACP_USERFEEDBACK_FEEDBACK}
+		</th>
+		<th>
+			{L_ACP_USERFEEDBACK_COMMENT}
+		</th>
+	</tr>
+	<!-- IF not .feedback -->
+		<tr>
+			<td colspan="<!-- IF USERFEEDBACK_S_ROLE -->6<!-- ELSE -->5<!-- ENDIF -->">
+				{L_ACP_USERFEEDBACK_NOFOUND}
+			</td>
+		</tr>
+	<!-- ELSE -->
+		<!-- BEGIN feedback -->
+			<tr class="<!-- IF feedback.S_ROW_COUNT is even -->row1<!-- ELSE -->row2<!-- ENDIF -->">
+				<td style="width: 200px;">
+					&nbsp;<a href="{feedback.USERFEEDBACK_PROFILE}">[{L_READ_PROFILE}]</a>
+					<!-- IF USERFEEDBACK_S_LINK && feedback.USERFEEDBACK_LINK -->
+						<a href="{feedback.USERFEEDBACK_LINK}">[{L_TOPIC}]</a>
+					<!-- ENDIF -->
+					&nbsp;<a href="{feedback.USERFEEDBACK_URL}" style="color: {feedback.USERFEEDBACK_USER_COL};">{feedback.USERFEEDBACK_USER}</a>
+				</td>
+				<td>
+					{feedback.USERFEEDBACK_IP}
+				</td>
+				<td style="width: 80px; text-align: center;">
+					{feedback.USERFEEDBACK_DATE}
+				</td>
+				<!-- IF USERFEEDBACK_S_ROLE -->
+					<td style="width: 80px; text-align: center;">
+						{feedback.USERFEEDBACK_ROLE}
+					</td>
+				<!-- ENDIF -->
+				<td style="width: 80px; text-align: center;">
+					{feedback.USERFEEDBACK_VOTE}
+				</td>
+				<td>
+					<!-- IF feedback.USERFEEDBACK_EDIT -->
+						<div style="float: {S_CONTENT_FLOW_END};">
+							<a href="{feedback.USERFEEDBACK_EDITURL}">{ICON_EDIT}</a>
+							<a href="{feedback.USERFEEDBACK_DELETEURL}">{ICON_DELETE}</a>
+						</div>
+					<!-- ENDIF -->
+					{feedback.USERFEEDBACK_COMMENT}
+				</td>
+			</tr>
+		<!-- END feedback -->
+	<!-- ENDIF -->
+</table>
+<div class="action-bar bottom">
+	<div class="pagination">
+		{USERFEEDBACK_TOT_FEEDBACKS}
+		<!-- IF USERFEEDBACK_S_PAGINATION -->
+			<!-- IF .pagination -->
+				&bull; <!-- INCLUDE pagination.html -->
+			<!-- ELSE -->
+				&bull; {PAGE_NUMBER}
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'add' -->
+<h1>{L_ACP_USERFEEDBACK_ADD}</h1>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<table class="tablebg">
+		<tr class="row1">
+			<td style="width: 200px;">
+				{L_ACP_USERFEEDBACK_FROM}
+			</td>
+			<td>
+				<input name="from" type="text" maxlength="255" />
+			</td>
+		</tr>
+		<tr class="row1">
+			<td style="width: 200px;">
+				{L_USERNAME}
+			</td>
+			<td>
+				{USERFEEDBACK_TOUSER}
+			</td>
+		</tr>
+		<!-- IF USERFEEDBACK_S_ROLE -->
+			<tr class="row1">
+				<td>
+					{L_ACP_USERFEEDBACK_ROLE}
+				</td>
+				<td>
+					<input type="radio" class="radio" name="role" value="1" />
+					<span class="genmed">{L_ACP_USERFEEDBACK_BUYER}</span>
+					<input type="radio" class="radio" name="role" value="2" />
+					<span class="genmed">{L_ACP_USERFEEDBACK_SELLER}</span>
+					<input type="radio" class="radio" name="role" value="0" checked="checked" />
+					<span class="genmed">{L_ACP_USERFEEDBACK_TRADE}</span>
+				</td>
+			</tr>
+		<!-- ENDIF -->
+		<tr class="row1">
+			<td>
+				{L_ACP_USERFEEDBACK_FEEDBACK}
+			</td>
+			<td>
+				<input type="radio" class="radio" name="vote" value="0" />
+				<span class="genmed" style="color: red;">{L_ACP_USERFEEDBACK_NEG}</span>
+				<input type="radio" class="radio" name="vote" value="2" checked="checked" />
+				<span class="genmed" style="color: black;">{L_ACP_USERFEEDBACK_NEU}</span>
+				<input type="radio" class="radio" name="vote" value="1" />
+				<span class="genmed" style="color: green;">{L_ACP_USERFEEDBACK_POS}</span>
+			</td>
+		</tr>
+		<!-- IF USERFEEDBACK_S_LINK -->
+			<tr class="row1">
+				<td style="width: 100px;">
+					<!-- IF USERFEEDBACK_S_LINK_FORCE -->
+						{L_ACP_USERFEEDBACK_LINK}
+					<!-- ELSE -->
+						{L_ACP_USERFEEDBACK_LINKOPT}
+					<!-- ENDIF -->
+				</td>
+				<td>
+					<input name="link" type="text" maxlength="8" value="{USERFEEDBACK_LINK}" />
+				</td>
+			</tr>
+		<!-- ENDIF -->
+		<tr class="row1">
+			<td>
+				{L_ACP_USERFEEDBACK_COMMENTOPT}
+			</td>
+			<td>
+				<textarea name="comment" rows="7" cols="50"></textarea>
+			</td>
+		</tr>
+		<tr class="row2">
+			<td>
+				&nbsp;
+			</td>
+			<td>
+				{USERFEEDBACK_HIDDEN}{S_FORM_TOKEN}<input class="btnlite" name="submit" type="submit" value="{L_ACP_USERFEEDBACK_ADD}" />
+			</td>
+		</tr>
+	</table>
+</form>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'edit' -->
+<h1>{L_ACP_USERFEEDBACK_EDIT}</h1>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<table class="tablebg">
+		<tr class="row1">
+			<td style="width: 200px;">
+				{L_ACP_USERFEEDBACK_FROM} ID
+			</td>
+			<td>
+				{USERFEEDBACK_FROM}
+			</td>
+		</tr>
+		<tr class="row1">
+			<td style="width: 200px;">
+				{L_USERNAME}
+			</td>
+			<td>
+				{USERFEEDBACK_TOUSER}
+			</td>
+		</tr>
+		<!-- IF USERFEEDBACK_S_ROLE -->
+			<tr class="row1">
+				<td>
+					{L_ACP_USERFEEDBACK_ROLE}
+				</td>
+				<td>
+					<input type="radio" class="radio" name="role" value="1"<!-- IF USERFEEDBACK_ROLE == 1 --> checked="checked"<!-- ENDIF --> />
+					<span class="genmed">{L_ACP_USERFEEDBACK_BUYER}</span>
+					<input type="radio" class="radio" name="role" value="2"<!-- IF USERFEEDBACK_ROLE == 2 --> checked="checked"<!-- ENDIF --> />
+					<span class="genmed">{L_ACP_USERFEEDBACK_SELLER}</span>
+					<input type="radio" class="radio" name="role" value="0"<!-- IF USERFEEDBACK_ROLE == 0 --> checked="checked"<!-- ENDIF --> />
+					<span class="genmed">{L_ACP_USERFEEDBACK_TRADE}</span>
+				</td>
+			</tr>
+		<!-- ELSE -->
+			<input type="hidden" name="role" value="{USERFEEDBACK_ROLE}" />
+		<!-- ENDIF -->
+		<tr class="row1">
+			<td>
+				{L_ACP_USERFEEDBACK_FEEDBACK}
+			</td>
+			<td>
+				<input type="radio" class="radio" name="vote" value="0"<!-- IF USERFEEDBACK_VOTE == 0 --> checked="checked"<!-- ENDIF --> />
+				<span class="genmed" style="color: red;">{L_ACP_USERFEEDBACK_NEG}</span>
+				<input type="radio" class="radio" name="vote" value="2"<!-- IF USERFEEDBACK_VOTE == 2 --> checked="checked"<!-- ENDIF --> />
+				<span class="genmed" style="color: black;">{L_ACP_USERFEEDBACK_NEU}</span>
+				<input type="radio" class="radio" name="vote" value="1"<!-- IF USERFEEDBACK_VOTE == 1 --> checked="checked"<!-- ENDIF --> />
+				<span class="genmed" style="color: green;">{L_ACP_USERFEEDBACK_POS}</span>
+			</td>
+		</tr>
+		<!-- IF USERFEEDBACK_S_LINK -->
+		<tr class="row1">
+			<td style="width: 100px;">
+				<!-- IF USERFEEDBACK_S_LINK_FORCE -->
+					{L_ACP_USERFEEDBACK_LINK}
+				<!-- ELSE -->
+					{L_ACP_USERFEEDBACK_LINKOPT}
+				<!-- ENDIF -->
+			</td>
+			<td>
+				<input name="link" type="text" maxlength="8" value="{USERFEEDBACK_LINK}" />
+			</td>
+		</tr>
+		<!-- ENDIF -->
+		<tr class="row1">
+			<td>
+				{L_ACP_USERFEEDBACK_COMMENTOPT}
+			</td>
+			<td>
+				<textarea name="comment" rows="7" cols="50">{USERFEEDBACK_COMM}</textarea>
+			</td>
+		</tr>
+		<tr class="row2">
+			<td>
+				&nbsp;
+			</td>
+			<td>
+				{USERFEEDBACK_HIDDEN}{S_FORM_TOKEN}<input class="btnlite" name="submit" type="submit" value="{L_ACP_USERFEEDBACK_EDIT}" />
+			</td>
+		</tr>
+	</table>
+</form>
+<!-- ENDIF -->
+
+<div class="small" style="text-align: right;">
+	<a href="http://www.riccardobianconi.it/phpbb-extension-user-feedback/" target="_blank">phpBB User Feedback</a>
+</div>
+				
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,707 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF USERFEEDBACK_PAGE === 'index' -->
+<h2>{L_USERFEEDBACK_FEEDBACK}&nbsp;{L_USERFEEDBACK_MAIN}</h2>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<div class="forumbg">
+		<div class="inner">
+			<span class="corners-top"><span></span></span>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>
+							{L_USERFEEDBACK_SEARCH}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bg1">
+						<td>
+							<label>{L_USERNAME}</label>
+							<input class="inputbox search" type="text" style="width: 300px;" class="post" name="un" />
+							<input class="button2" name="submit" type="submit" value="{L_SEARCH}" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<span class="corners-bottom"><span></span></span>
+		</div>
+	</div>
+</form>
+<table style="width: 100%;">
+	<tr valign="top">
+		<td style="width: 50%;">
+			<h2>{L_USERFEEDBACK_BEST_USERS}</h2>
+			<div class="forumbg">
+				<div class="inner">
+					<span class="corners-top"><span></span></span>
+					<table class="table1" cellspacing="1">
+						<thead>
+							<tr>
+								<th style="width: 15%;">
+									{L_USERFEEDBACK_RANK}
+								</th>
+								<th>
+									{L_USERFEEDBACK_USER}
+								</th>
+								<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_POS}
+									</th>
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_NEU}
+									</th>
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_NEG}
+									</th>
+								<!-- ELSE -->
+									<th style="width: 30%;">
+										{L_USERFEEDBACK_SCORE}
+									</th>
+								<!-- ENDIF -->
+							</tr>
+						</thead>
+						<tbody>
+							<!-- BEGIN best(1) -->
+								<tr class="<!-- IF best.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->" style="text-align: center;">
+									<td>
+										{best.S_ROW_COUNT}
+									</td>
+									<td style="text-align: left;">
+										<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+										<a href="{best.USERFEEDBACK_LINK}" style="color: {best.USERFEEDBACK_USER_COL};">{best.USERFEEDBACK_USER}</a>
+									</td>
+									<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+										<td>
+											<span class="positive">{best.USERFEEDBACK_POS}</span>
+										</td>
+										<td>
+											<span class="neutral">{best.USERFEEDBACK_NEU}</span>
+										</td>
+										<td>
+											<span class="negative">{best.USERFEEDBACK_NEG}</span>
+										</td>
+									<!-- ELSE -->
+										<!-- IF best.USERFEEDBACK_SCORE > 0-->
+											<td>
+												<span class="positive">{best.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ELSEIF best.USERFEEDBACK_SCORE == 0-->
+											<td>
+												<span class="neutral">{best.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ELSE -->
+											<td>
+												<span class="negative">{best.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ENDIF -->
+									<!-- ENDIF -->
+								</tr>
+							<!-- END best -->
+							<tr>
+								<td class="bg1" colspan="5">
+									<a href="{USERFEEDBACK_MOREBEST}">{L_USERFEEDBACK_VIEWMORE}</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="corners-bottom"><span></span></span>
+				</div>
+			</div>
+		</td>
+		<td>
+			<h2>{L_USERFEEDBACK_WORST_USERS}</h2>
+			<div class="forumbg">
+				<div class="inner">
+					<span class="corners-top"><span></span></span>
+					<table class="table1" cellspacing="1">
+						<thead>
+							<tr>
+								<th style="width: 15%;">
+									{L_USERFEEDBACK_RANK}
+								</th>
+								<th>
+									{L_USERFEEDBACK_USER}
+								</th>
+								<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_POS}
+									</th>
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_NEU}
+									</th>
+									<th style="width: 19%;">
+										{L_USERFEEDBACK_NEG}
+									</th>
+								<!-- ELSE -->
+									<th style="width: 30%;">
+										{L_USERFEEDBACK_SCORE}
+									</th>
+								<!-- ENDIF -->
+							</tr>
+						</thead>
+						<tbody>
+							<!-- BEGIN worst(1) -->
+								<tr class="<!-- IF worst.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->" style="text-align: center;">
+									<td>
+										{worst.S_ROW_COUNT}
+									</td>
+									<td style="text-align: left;">
+										<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+										<a href="{worst.USERFEEDBACK_LINK}" style="color: {worst.USERFEEDBACK_USER_COL};">{worst.USERFEEDBACK_USER}</a>
+									</td>
+									<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+										<td>
+											<span class="positive">{worst.USERFEEDBACK_POS}</span>
+										</td>
+										<td>
+											<span class="neutral">{worst.USERFEEDBACK_NEU}</span>
+										</td>
+										<td>
+											<span class="negative">{worst.USERFEEDBACK_NEG}</span>
+										</td>
+									<!-- ELSE -->
+										<!-- IF worst.USERFEEDBACK_SCORE > 0-->
+											<td>
+												<span class="positive">{worst.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ELSEIF worst.USERFEEDBACK_SCORE == 0-->
+											<td>
+												<span class="neutral">{worst.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ELSE -->
+											<td>
+												<span class="negative">{worst.USERFEEDBACK_SCORE}</span>
+											</td>
+										<!-- ENDIF -->
+									<!-- ENDIF -->
+								</tr>
+							<!-- END worst -->
+							<tr>
+								<td class="bg1" colspan="5">
+									<a href="{USERFEEDBACK_MOREWORST}">{L_USERFEEDBACK_VIEWMORE}</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="corners-bottom"><span></span></span>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'show' -->
+<h2>{L_USERFEEDBACK_FEEDBACKOF}&nbsp;{USERFEEDBACK_TOUSER}</h2>
+<!-- IF USERFEEDBACK_SCORE !== false -->
+	<div class="forumbg">
+		<div class="inner">
+			<span class="corners-top"><span></span></span>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>
+							{L_USERFEEDBACK_SCORE}
+						</th>
+						<th>
+							{L_USERFEEDBACK_PERCENTAGE}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bg1" style="line-height: 20px; text-align: center;">
+						<td style="width: 50%;">
+							<span class="<!-- IF USERFEEDBACK_SCORE > 0 -->positive<!-- ELSEIF USERFEEDBACK_SCORE < 0 -->negative<!-- ELSE -->neutral<!-- ENDIF -->">{USERFEEDBACK_SCORE}</span>
+						</td>
+						<td style="width: 50%;">
+							{USERFEEDBACK_PERCENTAGE}%
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<span class="corners-bottom"><span></span></span>
+		</div>
+	</div>
+<!-- ENDIF -->
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<div class="forumbg">
+		<div class="inner">
+			<span class="corners-top"><span></span></span>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>
+							{L_USERFEEDBACK_POS}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEU}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEG}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bg1" style="line-height: 20px; text-align: center;">
+						<td style="width: 33%;">
+							<span class="positive">{USERFEEDBACK_POS}</span>
+						</td>
+						<td style="width: 34%;">
+							<span class="neutral">{USERFEEDBACK_NEU}</span>
+						</td>
+						<td style="width: 33%;">
+							<span class="negative">{USERFEEDBACK_NEG}</span>
+						</td>
+					</tr>
+					<tr class="bg2" style="text-align: center;">
+						<td colspan="3">
+							<input class="button2" type="submit" value="{L_USERFEEDBACK_ADD}" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<span class="corners-bottom"><span></span></span>
+		</div>
+	</div>
+</form>
+<h3 class="right-box">
+	{L_USERFEEDBACK_FILTER}:&nbsp;
+	<a href="{USERFEEDBACK_FILTER_ALL}#userfeedback_details">{L_USERFEEDBACK_FILTER_ALL}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_POS}#userfeedback_details">{L_USERFEEDBACK_FILTER_POS}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_NEU}#userfeedback_details">{L_USERFEEDBACK_FILTER_NEU}</a>&nbsp;|&nbsp;
+	<a href="{USERFEEDBACK_FILTER_NEG}#userfeedback_details">{L_USERFEEDBACK_FILTER_NEG}</a>
+</h3>
+<!-- IF USERFEEDBACK_S_ROLE -->
+	<h3 class="right-box" style="margin-right: 20px;">
+		{L_USERFEEDBACK_ROLE}:&nbsp;
+		<a href="{USERFEEDBACK_ROLE_ALL}#userfeedback_details">{L_USERFEEDBACK_ROLE_ALL}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_BUYER}#userfeedback_details">{L_USERFEEDBACK_ROLE_BUYER}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_SELLER}#userfeedback_details">{L_USERFEEDBACK_ROLE_SELLER}</a>&nbsp;|&nbsp;
+		<a href="{USERFEEDBACK_ROLE_TRADE}#userfeedback_details">{L_USERFEEDBACK_ROLE_TRADE}</a>
+	</h3>
+<!-- ENDIF -->
+<a name="userfeedback_details"></a>
+<h2>{L_USERFEEDBACK_DETAILS}</h2>
+<div class="action-bar top">
+	<div class="pagination">
+		{USERFEEDBACK_TOT_FEEDBACKS}
+		<!-- IF USERFEEDBACK_S_PAGINATION -->
+			<!-- IF .pagination -->
+				<!-- INCLUDE pagination.html -->
+			<!-- ELSE -->
+				&bull; {PAGE_NUMBER}
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<div class="forumbg">
+	<div class="inner">
+		<span class="corners-top"><span></span></span>
+		<table class="table1" cellspacing="1">
+			<thead>
+				<tr>
+					<th>
+						{L_USERFEEDBACK_FROM} <a href="{USERFEEDBACK_ORDER_FROMA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_FROMD}">[&or;]</a>
+					</th>
+					<!-- IF USERFEEDBACK_SHOWIP -->
+						<th>
+							{L_USERFEEDBACK_IP} <a href="{USERFEEDBACK_ORDER_IPA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_IPD}">[&or;]</a>
+						</th>
+					<!-- ENDIF -->
+					<th>
+						{L_USERFEEDBACK_ONDATE} <a href="{USERFEEDBACK_ORDER_DATEA}">[&and;]</a><a href="{USERFEEDBACK_ORDER_DATED}">[&or;]</a>
+					</th>
+					<!-- IF USERFEEDBACK_S_ROLE -->
+						<th>
+							{L_USERFEEDBACK_ROLE}
+						</th>
+					<!-- ENDIF -->
+					<th>
+						{L_USERFEEDBACK_FEEDBACK}
+					</th>
+					<th>
+						{L_USERFEEDBACK_COMMENT}
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- IF not .feedback -->
+					<tr class="bg1">
+						<td <!-- IF USERFEEDBACK_SHOWIP && USERFEEDBACK_S_ROLE -->colspan="6"<!-- ELSEIF USERFEEDBACK_SHOWIP || USERFEEDBACK_S_ROLE -->colspan="5"<!-- ELSE -->colspan="4"<!-- ENDIF -->>
+							{L_USERFEEDBACK_NOFOUND}
+						</td>
+					</tr>
+				<!-- ELSE -->
+					<!-- BEGIN feedback -->
+						<tr class="<!-- IF feedback.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+							<td style="width: 200px;">
+								<a href="{feedback.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+								<!-- IF USERFEEDBACK_S_LINK && feedback.USERFEEDBACK_LINK -->
+									<a href="{feedback.USERFEEDBACK_LINK}" title="{L_TOPIC}">{ATTACH_ICON_IMG}</a>
+								<!-- ENDIF -->
+								<a href="{feedback.USERFEEDBACK_URL}" style="color: {feedback.USERFEEDBACK_USER_COL}; vertical-align: middle;">{feedback.USERFEEDBACK_USER}</a>
+							</td>
+							<!-- IF USERFEEDBACK_SHOWIP -->
+								<td>
+									{feedback.USERFEEDBACK_IP}
+								</td>
+							<!-- ENDIF -->			
+							<td style="width: 80px; text-align: center;">
+								{feedback.USERFEEDBACK_DATE}
+							</td>
+							<!-- IF USERFEEDBACK_S_ROLE -->
+								<td style="width: 80px; text-align: center;">
+									{feedback.USERFEEDBACK_ROLE}
+								</td>
+							<!-- ENDIF -->
+							<td style="width: 80px; text-align: center;">
+								{feedback.USERFEEDBACK_VOTE}
+							</td>
+							<td>
+								<!-- IF feedback.USERFEEDBACK_DELETE || feedback.USERFEEDBACK_EDIT -->
+									<ul class="post-buttons" style="float: {S_CONTENT_FLOW_END};">
+										<!-- IF feedback.USERFEEDBACK_EDIT -->
+											<li>
+												<a class="button icon-button edit-icon" href="{feedback.USERFEEDBACK_EDITURL}" title="{L_USERFEEDBACK_EDIT}" ><span>{L_USERFEEDBACK_EDIT}</span></a>
+											</li>
+										<!-- ENDIF -->
+										<!-- IF feedback.USERFEEDBACK_DELETE -->
+											<li>
+												<a class="button icon-button delete-icon" href="{feedback.USERFEEDBACK_DELETEURL}" title="{L_USERFEEDBACK_DELETE}"><span>{L_USERFEEDBACK_DELETE}</span></a>
+											</li>
+										<!-- ENDIF -->
+									</ul>
+								<!-- ENDIF -->
+								{feedback.USERFEEDBACK_COMMENT}
+							</td>
+						</tr>
+					<!-- END feedback -->
+				<!-- ENDIF -->
+			</tbody>
+		</table>
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+<div class="action-bar bottom">
+	<div class="pagination">
+		{USERFEEDBACK_TOT_FEEDBACKS}
+		<!-- IF USERFEEDBACK_S_PAGINATION -->
+			<!-- IF .pagination -->
+				<!-- INCLUDE pagination.html -->
+			<!-- ELSE -->
+				&bull; {PAGE_NUMBER}
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'add' -->
+<h2>{L_USERFEEDBACK_ADD}</h2>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<div class="forumbg">
+		<div class="inner">
+			<span class="corners-top"><span></span></span><table class="table1" cellspacing="1">
+			<tr class="bg1">
+				<td style="width: 200px">
+					{L_USERNAME}
+				</td>
+				<td>
+					{USERFEEDBACK_TOUSER}
+				</td>
+			</tr>
+			<!-- IF USERFEEDBACK_S_ROLE -->
+				<tr class="bg1">
+					<td>
+						{L_USERFEEDBACK_ROLE}
+					</td>
+					<td>
+						<input type="radio" class="radio" name="role" value="1" />
+						<span class="genmed"><span class="buyer">{L_USERFEEDBACK_BUYER}</span></span>
+						<input type="radio" class="radio" name="role" value="2" />
+						<span class="genmed"><span class="seller">{L_USERFEEDBACK_SELLER}</span></span>
+						<input type="radio" class="radio" name="role" value="0" checked="checked" />
+						<span class="genmed"><span class="trade">{L_USERFEEDBACK_TRADE}</span></span>
+					</td>
+				</tr>
+			<!-- ENDIF -->
+			<tr class="bg1">
+				<td>
+					{L_USERFEEDBACK_FEEDBACK}
+				</td>
+				<td>
+					<input type="radio" class="radio" name="vote" value="0" />
+					<span class="genmed"><span class="negative">{L_USERFEEDBACK_NEG}</span></span>
+					<input type="radio" class="radio" name="vote" value="2" checked="checked" />
+					<span class="genmed"><span class="neutral">{L_USERFEEDBACK_NEU}</span></span>
+					<input type="radio" class="radio" name="vote" value="1" />
+					<span class="genmed"><span class="positive">{L_USERFEEDBACK_POS}</span></span>
+				</td>
+			</tr>
+			<!-- IF USERFEEDBACK_S_LINK -->
+				<tr class="bg1">
+					<td style="width: 100px;">
+						<!-- IF USERFEEDBACK_S_LINK_FORCE -->{L_USERFEEDBACK_LINK}<!-- ELSE -->{L_USERFEEDBACK_LINKOPT}<!-- ENDIF -->
+					</td>
+					<td>
+						<input class="inputbox tiny" name="link" type="text" maxlength="8" value="{USERFEEDBACK_LINK}" />
+					</td>
+				</tr>
+			<!-- ENDIF -->
+			<tr class="bg1">
+				<td>
+					<!-- IF USERFEEDBACK_S_COMM_OPT -->{L_USERFEEDBACK_COMMENTOPT}<!-- ELSE -->{L_USERFEEDBACK_COMMENT}<!-- ENDIF -->
+				</td>
+				<td>
+					<textarea name="comment" rows="5" cols="50"></textarea>
+				</td>
+			</tr>
+			<tr class="bg2">
+				<td>
+					&nbsp;
+				</td>
+				<td>
+					{USERFEEDBACK_HIDDEN}{S_FORM_TOKEN}<input class="button2" name="submit" type="submit" value="{L_USERFEEDBACK_ADD}" />
+				</td>
+			</tr>
+		</table>
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+</form>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'edit' -->
+<h2>{L_USERFEEDBACK_EDIT}</h2>
+<form action="{USERFEEDBACK_ACTION}" method="post"{S_FORM_ENCTYPE}>
+	<div class="forumbg">
+		<div class="inner">
+			<span class="corners-top"><span></span></span>
+			<table class="table1" cellspacing="1">
+				<tr class="bg1">
+					<td style="width: 200px">
+						{L_USERNAME}
+					</td>
+					<td>
+						{USERFEEDBACK_TOUSER}
+					</td>
+				</tr>
+				<!-- IF USERFEEDBACK_S_ROLE -->
+					<tr class="bg1">
+						<td>
+							{L_USERFEEDBACK_ROLE}
+						</td>
+						<td>
+							<input type="radio" class="radio" name="role" value="1"<!-- IF USERFEEDBACK_ROLE == 1 --> checked="checked"<!-- ENDIF --> />
+							<span class="genmed"><span class="buyer">{L_USERFEEDBACK_BUYER}</span></span>
+							<input type="radio" class="radio" name="role" value="2"<!-- IF USERFEEDBACK_ROLE == 2 --> checked="checked"<!-- ENDIF --> />
+							<span class="genmed"><span class="seller">{L_USERFEEDBACK_SELLER}</span></span>
+							<input type="radio" class="radio" name="role" value="0"<!-- IF USERFEEDBACK_ROLE == 0 --> checked="checked"<!-- ENDIF --> />
+							<span class="genmed"><span class="trade">{L_USERFEEDBACK_TRADE}</span></span>
+						</td>
+					</tr>
+				<!-- ELSE -->
+					<input type="hidden" name="role" value="{USERFEEDBACK_ROLE}" />
+				<!-- ENDIF -->
+				<tr class="bg1">
+					<td>
+						{L_USERFEEDBACK_FEEDBACK}
+					</td>
+					<td>
+						<input type="radio" class="radio" name="vote" value="0"<!-- IF USERFEEDBACK_VOTE == 0 --> checked="checked"<!-- ENDIF --> />
+						<span class="genmed"><span class="negative">{L_USERFEEDBACK_NEG}</span></span>
+						<input type="radio" class="radio" name="vote" value="2"<!-- IF USERFEEDBACK_VOTE == 2 --> checked="checked"<!-- ENDIF --> />
+						<span class="genmed"><span class="neutral">{L_USERFEEDBACK_NEU}</span></span>
+						<input type="radio" class="radio" name="vote" value="1"<!-- IF USERFEEDBACK_VOTE == 1 --> checked="checked"<!-- ENDIF --> />
+						<span class="genmed"><span class="positive">{L_USERFEEDBACK_POS}</span></span>
+					</td>
+				</tr>
+				<!-- IF USERFEEDBACK_S_LINK -->
+					<tr class="bg1">
+						<td style="width: 100px;">
+							<!-- IF USERFEEDBACK_S_LINK_FORCE -->{L_USERFEEDBACK_LINK}<!-- ELSE -->{L_USERFEEDBACK_LINKOPT}<!-- ENDIF -->
+						</td>
+						<td>
+							<input class="inputbox tiny" name="link" type="text" maxlength="8" value="{USERFEEDBACK_LINK}" />
+						</td>
+					</tr>
+				<!-- ENDIF -->
+				<tr class="bg1">
+					<td>
+						<!-- IF USERFEEDBACK_S_COMM_OPT -->{L_USERFEEDBACK_COMMENTOPT}<!-- ELSE -->{L_USERFEEDBACK_COMMENT}<!-- ENDIF -->
+					</td>
+					<td>
+						<textarea name="comment" rows="5" cols="50">{USERFEEDBACK_COMM}</textarea>
+					</td>
+				</tr>
+				<tr class="bg2">
+					<td>
+						&nbsp;
+					</td>
+					<td>
+						{USERFEEDBACK_HIDDEN}{S_FORM_TOKEN}<input class="button2" name="submit" type="submit" value="{L_USERFEEDBACK_EDIT}" />
+					</td>
+				</tr>
+			</table>
+			<span class="corners-bottom"><span></span></span>
+		</div>
+	</div>
+</form>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'best' -->
+<h2>{L_USERFEEDBACK_FEEDBACK} {L_USERFEEDBACK_BEST_USERS}</h2>
+<div class="forumbg">
+	<div class="inner">
+		<span class="corners-top"><span></span></span>
+		<table class="table1" cellspacing="1">
+			<thead>
+				<tr>
+					<th>
+						{L_USERFEEDBACK_RANK}
+					</th>
+					<th>
+						{L_USERFEEDBACK_USER}
+					</th>
+					<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+						<th>
+							{L_USERFEEDBACK_POS}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEU}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEG}
+						</th>
+					<!-- ELSE -->
+						<th>
+							{L_USERFEEDBACK_SCORE}
+						</th>
+					<!-- ENDIF -->
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN best(1) -->
+					<tr class="<!-- IF best.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->" style="text-align: center;">
+						<td>
+							{best.S_ROW_COUNT}
+						</td>
+						<td style="text-align: left;">
+							<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+							<a href="{best.USERFEEDBACK_LINK}" style="color: {best.USERFEEDBACK_USER_COL}; vertical-align: middle;">{best.USERFEEDBACK_USER}</a>
+						</td>
+						<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+							<td>
+								<span class="positive">{best.USERFEEDBACK_POS}</span>
+							</td>
+							<td>
+								<span class="neutral">{best.USERFEEDBACK_NEU}</span>
+							</td>
+							<td>
+								<span class="negative">{best.USERFEEDBACK_NEG}</span>
+							</td>
+						<!-- ELSE -->
+							<!-- IF best.USERFEEDBACK_SCORE > 0-->
+								<td>
+									<span class="positive">{best.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ELSEIF best.USERFEEDBACK_SCORE == 0-->
+								<td>
+									<span class="neutral">{best.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ELSE -->
+								<td>
+									<span class="negative">{best.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ENDIF -->
+						<!-- ENDIF -->
+					</tr>
+				<!-- END best -->
+			</tbody>
+		</table>
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF USERFEEDBACK_PAGE === 'worst' -->
+<h2>{L_USERFEEDBACK_FEEDBACK} {L_USERFEEDBACK_WORST_USERS}</h2>
+<div class="forumbg">
+	<div class="inner">
+		<span class="corners-top"><span></span></span>
+		<table class="table1" cellspacing="1">
+			<thead>
+				<tr>
+					<th>
+						{L_USERFEEDBACK_RANK}
+					</th>
+					<th>
+						{L_USERFEEDBACK_USER}
+					</th>
+					<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+						<th>
+							{L_USERFEEDBACK_POS}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEU}
+						</th>
+						<th>
+							{L_USERFEEDBACK_NEG}
+						</th>
+					<!-- ELSE -->
+						<th>
+							{L_USERFEEDBACK_SCORE}
+						</th>
+					<!-- ENDIF -->
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN worst(1) -->
+					<tr class="<!-- IF best.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->" style="text-align: center;">
+						<td>
+							{worst.S_ROW_COUNT}
+						</td>
+						<td style="text-align: left;">
+							<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+							<a href="{worst.USERFEEDBACK_LINK}" style="color: {worst.USERFEEDBACK_USER_COL}; vertical-align: middle;">{worst.USERFEEDBACK_USER}</a>
+						</td>
+						<!-- IF USERFEEDBACK_S_SCORE == 0 -->
+							<td>
+								<span class="positive">{worst.USERFEEDBACK_POS}</span>
+							</td>
+							<td>
+								<span class="neutral">{worst.USERFEEDBACK_NEU}</span>
+							</td>
+							<td>
+								<span class="negative">{worst.USERFEEDBACK_NEG}</span>
+							</td>
+						<!-- ELSE -->
+							<!-- IF worst.USERFEEDBACK_SCORE > 0-->
+								<td>
+									<span class="positive">{worst.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ELSEIF worst.USERFEEDBACK_SCORE == 0-->
+								<td>
+									<span class="neutral">{worst.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ELSE -->
+								<td>
+									<span class="negative">{worst.USERFEEDBACK_SCORE}</span>
+								</td>
+							<!-- ENDIF -->
+						<!-- ENDIF -->
+					</tr>
+				<!-- END worst -->
+			</tbody>
+		</table>
+		<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<div class="copyright" style="text-align: right;">
+	<a href="http://www.riccardobianconi.it/phpbb-extension-user-feedback/" target="_blank">phpBB User Feedback</a>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

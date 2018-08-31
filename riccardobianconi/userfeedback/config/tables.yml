@@ -1,0 +1,3 @@
+parameters:
+    riccardobianconi.userfeedback.tables.feedback: %core.table_prefix%userfeedback
+    riccardobianconi.userfeedback.tables.feedback_tot: %core.table_prefix%userfeedback_tot
