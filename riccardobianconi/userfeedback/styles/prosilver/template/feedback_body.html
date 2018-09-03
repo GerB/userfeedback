@@ -68,7 +68,9 @@
 										{best.S_ROW_COUNT}
 									</td>
 									<td style="text-align: left;">
-										<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+										<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}">
+                                            <i class="icon fa-user fa-fw"></i>
+                                        </a>
 										<a href="{best.USERFEEDBACK_LINK}" style="color: {best.USERFEEDBACK_USER_COL};">{best.USERFEEDBACK_USER}</a>
 									</td>
 									<!-- IF USERFEEDBACK_S_SCORE == 0 -->
@@ -147,7 +149,9 @@
 										{worst.S_ROW_COUNT}
 									</td>
 									<td style="text-align: left;">
-										<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+										<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}">
+                                            <i class="icon fa-user fa-fw"></i>
+                                        </a>
 										<a href="{worst.USERFEEDBACK_LINK}" style="color: {worst.USERFEEDBACK_USER_COL};">{worst.USERFEEDBACK_USER}</a>
 									</td>
 									<!-- IF USERFEEDBACK_S_SCORE == 0 -->
@@ -336,7 +340,7 @@
 					<!-- BEGIN feedback -->
 						<tr class="<!-- IF feedback.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
 							<td style="width: 200px;">
-								<a href="{feedback.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+								<a href="{feedback.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><i class="icon fa-user fa-fw"></i></a>
 								<!-- IF USERFEEDBACK_S_LINK && feedback.USERFEEDBACK_LINK -->
 									<a href="{feedback.USERFEEDBACK_LINK}" title="{L_TOPIC}">{ATTACH_ICON_IMG}</a>
 								<!-- ENDIF -->
@@ -363,12 +367,18 @@
 									<ul class="post-buttons" style="float: {S_CONTENT_FLOW_END};">
 										<!-- IF feedback.USERFEEDBACK_EDIT -->
 											<li>
-												<a class="button icon-button edit-icon" href="{feedback.USERFEEDBACK_EDITURL}" title="{L_USERFEEDBACK_EDIT}" ><span>{L_USERFEEDBACK_EDIT}</span></a>
+												<a class="button button-icon-only" href="{feedback.USERFEEDBACK_EDITURL}" title="{L_USERFEEDBACK_EDIT}" >
+                                                    <i class="icon fa-pencil a-fw" aria-hidden="true"></i>
+                                                    <span class="sr-only">{L_USERFEEDBACK_EDIT}</span>
+                                                </a>
 											</li>
 										<!-- ENDIF -->
 										<!-- IF feedback.USERFEEDBACK_DELETE -->
 											<li>
-												<a class="button icon-button delete-icon" href="{feedback.USERFEEDBACK_DELETEURL}" title="{L_USERFEEDBACK_DELETE}"><span>{L_USERFEEDBACK_DELETE}</span></a>
+												<a class="button button-icon-only" href="{feedback.USERFEEDBACK_DELETEURL}" title="{L_USERFEEDBACK_DELETE}">
+                                                    <i class="icon fa-times a-fw" aria-hidden="true"></i>
+                                                    <span class="sr-only">{L_USERFEEDBACK_DELETE}</span>
+                                                </a>
 											</li>
 										<!-- ENDIF -->
 									</ul>
@@ -588,7 +598,7 @@
 							{best.S_ROW_COUNT}
 						</td>
 						<td style="text-align: left;">
-							<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+							<a href="{best.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><i class="icon fa-user fa-fw"></i></a>
 							<a href="{best.USERFEEDBACK_LINK}" style="color: {best.USERFEEDBACK_USER_COL}; vertical-align: middle;">{best.USERFEEDBACK_USER}</a>
 						</td>
 						<!-- IF USERFEEDBACK_S_SCORE == 0 -->
@@ -663,7 +673,7 @@
 							{worst.S_ROW_COUNT}
 						</td>
 						<td style="text-align: left;">
-							<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><img src="{T_THEME_PATH}/images/icon_profile.gif" alt="{L_READ_PROFILE}" /></a>
+							<a href="{worst.USERFEEDBACK_PROFILE}" title="{L_READ_PROFILE}"><i class="icon fa-user fa-fw"></i></a>
 							<a href="{worst.USERFEEDBACK_LINK}" style="color: {worst.USERFEEDBACK_USER_COL}; vertical-align: middle;">{worst.USERFEEDBACK_USER}</a>
 						</td>
 						<!-- IF USERFEEDBACK_S_SCORE == 0 -->
