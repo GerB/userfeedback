@@ -424,18 +424,17 @@ class admin_controller
 			{
 				$role = $this->user->lang['ACP_USERFEEDBACK_ROLE_TRADE'];
 			}
-			
 			if ((int) $a['userfeedback_vote'] === common_constants::VOTE_POSITIVE)
 			{
 				$vote = '<span style="color:green;">' . $this->user->lang['ACP_USERFEEDBACK_FILTER_POS'] . '</span>';
 			}
 			elseif ((int) $a['userfeedback_vote'] === common_constants::VOTE_NEGATIVE)
 			{
-				$vote = '<span style="color:black;">' . $this->user->lang['ACP_USERFEEDBACK_FILTER_NEU'] . '</span>';
+				$vote = '<span style="color:red;">' . $this->user->lang['ACP_USERFEEDBACK_FILTER_NEG'] . '</span>';
 			}
 			else
 			{
-				$vote = '<span style="color:red;">' . $this->user->lang['ACP_USERFEEDBACK_FILTER_NEG'] . '</span>';
+				$vote = '<span style="color:black;">' . $this->user->lang['ACP_USERFEEDBACK_FILTER_NEU'] . '</span>';
 			}
 			
 			if ($a['userfeedback_link'])
