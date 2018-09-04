@@ -784,7 +784,7 @@ class admin_controller
 				'userfeedback_vote'		=> $vote,
 				'userfeedback_link'		=> $link,
 				'userfeedback_comment'	=> $comm_parser->message,
-				'userfeedback_ip'		=> $this->user->ip,
+//				'userfeedback_ip'		=> $this->user->ip,
 //				'userfeedback_date'		=> time(),
 				'bbcode_bitfield'		=> $comm_parser->bbcode_bitfield,
 				'bbcode_uid'			=> $comm_parser->bbcode_uid,
